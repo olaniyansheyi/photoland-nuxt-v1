@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import supabase from "@/services/supabase";
+import { supabase } from "~/plugins/supabase";
 import { useToast } from "vue-toastification";
 import { useRouter } from "vue-router";
 

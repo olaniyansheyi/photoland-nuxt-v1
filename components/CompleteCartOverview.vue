@@ -18,8 +18,8 @@ const totalProductsPrice = cartStore.cart.reduce(
   >
     <span class="bg-primary h-[2rem]">
       <NuxtLink to="/">
-        <nuxt-icon
-          name="IconoirCancel"
+        <Icon
+          icon="IconoirCancel"
           @click.prevent="cartStore.handleToggleCart"
           class="text-white text-3xl font-semibold cursor-pointer"
         />
@@ -74,8 +74,8 @@ const totalProductsPrice = cartStore.cart.reduce(
             ${{ cartItem.unitPrice }} per 1 Unit
           </h4>
         </div>
-        <nuxt-icon
-          name="IconoirCancel"
+        <Icon
+          icon="IconoirCancel"
           @click="cartStore.handleDeleteCart(cartItem.id)"
           class="text-white text-2xl font-bold absolute top-8 right-2 cursor-pointer"
         />
