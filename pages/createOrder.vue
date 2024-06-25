@@ -1,12 +1,11 @@
 <script setup>
-import { onMounted, ref } from "vue";
-import { useOrderStore } from "@/stores/order";
-import { useCartStore } from "@/stores/cart";
+import { useOrderStore } from "~/stores/order";
+import { useCartStore } from "~/stores/cart";
 import { useToast } from "vue-toastification";
-import { useRouter } from "vue-router";
+import { useRouter } from "#app";
 
-const toast = useToast();
 const router = useRouter();
+const toast = useToast();
 
 const orderStore = useOrderStore();
 const cartStore = useCartStore();

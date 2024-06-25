@@ -1,11 +1,9 @@
 <script setup>
-import { ref } from "vue";
-import Menu from "./Menu.vue";
-import logo from "../img/logo.png";
-import { useCartStore } from "@/stores/cart";
-import { useRouter } from "vue-router";
-import { useOrderStore } from "@/stores/order";
-import { useMenuStore } from "@/stores/menu";
+import logo from "~/public/img/logo.png";
+import { useCartStore } from "~/stores/cart";
+import { useRouter } from "#app";
+import { useOrderStore } from "~/stores/order";
+import { useMenuStore } from "~/stores/menu";
 
 const router = useRouter();
 

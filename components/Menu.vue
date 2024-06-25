@@ -1,6 +1,5 @@
 <script setup>
-import { useRouter, RouterLink } from "vue-router";
-import { defineProps } from "vue";
+
 
 const props = defineProps({
   handleToggleMenu: {
@@ -22,29 +21,29 @@ const props = defineProps({
         />
       </span>
       <h3 className="text-accent font-bold text-2xl">Products Categories</h3>
-      <RouterLink @click="props.handleToggleMenu" to="/products-dslr">
+      <NuxtLink @click="props.handleToggleMenu" to="/products-dslr">
         Dslr Camera
-      </RouterLink>
-      <RouterLink @click="props.handleToggleMenu" to="/products-mirrorless">
+      </NuxtLink>
+      <NuxtLink @click="props.handleToggleMenu" to="/products-mirrorless">
         Mirrorless Camera
-      </RouterLink>
-      <RouterLink @click="props.handleToggleMenu" to="/products-compact">
+      </NuxtLink>
+      <NuxtLink @click="props.handleToggleMenu" to="/products-compact">
         Compact Camera
-      </RouterLink>
-      <RouterLink @click="props.handleToggleMenu" to="/products-film">
+      </NuxtLink>
+      <NuxtLink @click="props.handleToggleMenu" to="/products-film">
         Film Camera
-      </RouterLink>
-      <RouterLink @click="props.handleToggleMenu" to="/products-professional">
+      </NuxtLink>
+      <NuxtLink @click="props.handleToggleMenu" to="/products-professional">
         Professional Camera
-      </RouterLink>
+      </NuxtLink>
 
-      <RouterLink
+      <NuxtLink
         @click="props.handleToggleMenu"
         className="text-accent font-semibold "
         to="/"
       >
         Go Back to Home
-      </RouterLink>
+      </NuxtLink>
     </div>
   </div>
 </template>

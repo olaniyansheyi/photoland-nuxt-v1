@@ -1,8 +1,4 @@
 <script setup>
-import ProductCategoryList from "../components/ProductCategoryList.vue";
-import { RouterLink } from "vue-router";
-import { defineProps } from "vue";
-
 const props = defineProps({
   productCategory: {
     type: Array,
@@ -31,7 +27,7 @@ const uniqueCategories = Array.from(categoriesSet);
         <span class="text-accent"> camera</span>
       </h2>
       <div class="w-full flex flex-wrap items-center justify-center gap-5">
-        <RouterLink
+        <NuxtLink
           to="/product"
           v-for="product in productCategory"
           :key="product.id"
@@ -72,7 +68,7 @@ const uniqueCategories = Array.from(categoriesSet);
               -{{ product.percentageDiscount }}%
             </div>
           </div>
-        </RouterLink>
+        </NuxtLink>
       </div>
     </div>
   </div>

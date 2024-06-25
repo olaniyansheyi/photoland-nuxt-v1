@@ -1,6 +1,5 @@
 <script setup>
-import { useCartStore } from "@/stores/cart";
-import { RouterLink } from "vue-router";
+import { useCartStore } from "~/stores/cart";
 
 const cartStore = useCartStore();
 
@@ -18,25 +17,25 @@ const totalProductsPrice = cartStore.cart.reduce(
     "
   >
     <span class="bg-primary h-[2rem]">
-      <RouterLink to="/">
-        <font-awesome-icon
-          :icon="['fas', 'times']"
+      <NuxtLink to="/">
+        <nuxt-icon
+          name="IconoirCancel"
           @click.prevent="cartStore.handleToggleCart"
           class="text-white text-3xl font-semibold cursor-pointer"
         />
-      </RouterLink>
+      </NuxtLink>
     </span>
 
     <div v-if="cartStore.cart.length === 0" class="pt-24 text-center">
       <h4 class="text-2xl tracking-wide font-semibold">Your Cart Is Empty</h4>
-      <RouterLink to="/">
+      <NuxtLink to="/">
         <button
           @click="cartStore.handleToggleCart"
           class="font-semibold bg-accent text-primary rounded-lg px-6 py-2 mt-5"
         >
           Shop Now
         </button>
-      </RouterLink>
+      </NuxtLink>
     </div>
 
     <div
@@ -75,8 +74,8 @@ const totalProductsPrice = cartStore.cart.reduce(
             ${{ cartItem.unitPrice }} per 1 Unit
           </h4>
         </div>
-        <font-awesome-icon
-          :icon="['fas', 'times']"
+        <nuxt-icon
+          name="IconoirCancel"
           @click="cartStore.handleDeleteCart(cartItem.id)"
           class="text-white text-2xl font-bold absolute top-8 right-2 cursor-pointer"
         />
@@ -99,7 +98,7 @@ const totalProductsPrice = cartStore.cart.reduce(
             ${{ cartStore.totalProductsPrice }}
           </h4>
 
-          <RouterLink to="/create-order">
+          <NuxtLink to="/create-order">
             <button
               @click="
                 () => {
@@ -110,7 +109,7 @@ const totalProductsPrice = cartStore.cart.reduce(
             >
               Order Now
             </button>
-          </RouterLink>
+          </NuxtLink>
         </span>
       </div>
     </div>

@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink } from "vue-router";
+
 </script>
 
 <template>
@@ -12,11 +12,11 @@ import { RouterLink } from "vue-router";
     <div
       className="mt-5 flex flex-col gap-y-5 items-start text-white px-5 text-md font-normal  "
     >
-      <RouterLink to="/products-dslr">Dslr Camera</RouterLink>
-      <RouterLink to="/products-mirrorless">Mirrorless Camera</RouterLink>
-      <RouterLink to="/products-compact">Compact Camera</RouterLink>
-      <RouterLink to="/products-film">Film Camera</RouterLink>
-      <RouterLink to="/products-professional">Professional Camera</RouterLink>
+      <NuxtLink to="/products-dslr">Dslr Camera</NuxtLink>
+      <NuxtLink to="/products-mirrorless">Mirrorless Camera</NuxtLink>
+      <NuxtLink to="/products-compact">Compact Camera</NuxtLink>
+      <NuxtLink to="/products-film">Film Camera</NuxtLink>
+      <NuxtLink to="/products-professional">Professional Camera</NuxtLink>
     </div>
   </div>
 </template>

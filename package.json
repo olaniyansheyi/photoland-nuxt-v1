@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxtjs/icon": "^3.0.0-beta.16",
     "@nuxtjs/tailwindcss": "^6.12.0",
     "@pinia/nuxt": "^0.5.1",
     "@supabase/supabase-js": "^2.43.5",
@@ -17,7 +18,8 @@
     "nuxt-icon": "^0.6.10",
     "pinia": "^2.1.7",
     "vue": "^3.4.29",
-    "vue-router": "^4.3.3"
+    "vue-router": "^4.3.3",
+    "vue-toastification": "^2.0.0-rc.5"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.19",

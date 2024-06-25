@@ -1,9 +1,8 @@
 <script setup>
-import { RouterLink } from "vue-router";
-import { useProductsStore } from "@/stores/products";
-import { useCartStore } from "@/stores/cart";
+import { useProductsStore } from "~/stores/products";
+import { useCartStore } from "~/stores/cart";
 
-import { useRouter } from "vue-router";
+import { useRouter } from "#app";
 
 const router = useRouter();
 
@@ -41,13 +40,13 @@ const cartStore = useCartStore();
           </h3>
 
           <span v-if="cartStore.inCart" class="flex flex-nowrap gap-x-2">
-            <RouterLink to="/">
+            <NuxtLink to="/">
               <button
                 class="bg-accent hover:bg-accent-hover text-primary font-semibold px-2 rounded-lg py-1"
               >
                 Shop more
               </button>
-            </RouterLink>
+            </NuxtLink>
             <button
               @click="cartStore.handleToggleCart"
               class="bg-accent hover:bg-accent-hover text-primary font-semibold px-3 py-1 rounded-lg"
