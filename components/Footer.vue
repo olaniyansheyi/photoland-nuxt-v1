@@ -2,33 +2,33 @@
 
 <template>
   <div
-    className="flex items-center justify-center flex-col gap-y-5 bg-primary py-16 w-full text-white text-center "
+    class="flex items-center justify-center flex-col gap-y-5 bg-primary py-16 w-full text-white text-center"
   >
     <span>
-      <h1 className="font-bold text-2xl tracking-wide">
+      <h1 class="font-bold text-2xl tracking-wide">
         SUBSCRIBE TO OUR NEWSLETTER
       </h1>
-      <p className="font-normal tracking-wide mt-5 ">
+      <p class="font-normal tracking-wide mt-5">
         Be the first to get the latest trends,production and much more!
       </p>
     </span>
-    <div className="flex gap-x-2 lg:w-[60%] w-[90%] sm:w-[70%]">
+    <div class="flex gap-x-2 lg:w-[60%] w-[90%] sm:w-[70%]">
       <input
         type="text"
         placeholder="Type your email here..."
-        className="w-[85%] rounded-lg outline-none px-5 placeholder:text-primary text-primary"
+        class="w-[85%] rounded-lg outline-none px-5 placeholder:text-primary text-primary"
       />
       <button
-        className="text-primary bg-accent hover:bg-accent-hover py-3 px-5 rounded-lg"
+        class="text-primary bg-accent hover:bg-accent-hover py-3 px-5 rounded-lg"
       >
         submit
       </button>
     </div>
-    <p className="w-[70%]">
+    <p class="w-[70%]">
       All Right Reserved. &copy;2024 | Built by sheyi olaniyan.
     </p>
     <div
-      className="flex justify-center items-center gap-x-5 text-2xl cursor-pointer mt-5"
+      class="flex justify-center items-center gap-x-5 text-2xl cursor-pointer mt-5"
     >
       <a href="https://twitter.com/olaniyanoe1704">
         <font-awesome-icon :icon="['fab', 'linkedin']" />

@@ -21,6 +21,7 @@ export const useProductsStore = defineStore("products", {
           this.error = "Products could not be loaded";
         } else {
           this.products = data;
+          console.log(this.products);
         }
       } catch (error) {
         console.error("Unexpected error:", error);

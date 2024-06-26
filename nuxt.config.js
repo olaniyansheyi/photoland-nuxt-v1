@@ -3,6 +3,7 @@ export default {
   modules: ["@nuxtjs/tailwindcss", "nuxt-icon", "@pinia/nuxt"],
 
   fontawesome: {
+    component: "fa",
     icons: {
       solid: true,
       regular: true,
@@ -14,5 +15,6 @@ export default {
   plugins: [
     { src: "~/plugins/supabase.js", mode: "client" },
     "~/plugins/iconify.js",
+    "~/plugins/fontawesome.js",  
   ],
 };
