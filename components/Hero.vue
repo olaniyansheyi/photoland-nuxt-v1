@@ -25,9 +25,9 @@ import PromoImg2 from "~/public/promo_img2.png";
               handleToggleMenu;
             }
           "
-          class="mt-10 text-primary bg-accent rounded-lg py-3 px-8 font-semibold hover:bg-accent-hover"
+          class="mt-10 text-primary bg-accent rounded-lg py-3 px-8 font-semibold hover:bg-accent-hover tracking-wider"
         >
-          SHOP NOW
+          SIGNUP NOW!
         </button>
       </span>
       <div class="lg:ms-[-5rem]">
