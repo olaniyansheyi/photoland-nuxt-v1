@@ -1,12 +1,15 @@
 <script setup>
 import { useProductsStore } from "~/stores/product.js";
 import { useCartStore } from "~/stores/cart.js";
+import { onMounted } from "vue";
 
 const cartStore = useCartStore();
 
 const productsStore = useProductsStore();
 
-productsStore.getProducts();
+onMounted(() => {
+  productsStore.getProducts();
+});
 </script>
 
 <template>

@@ -45,7 +45,7 @@ import PromoImg2 from "~/public/promo_img2.png";
           <h4 class="font-bold text-lg tracking-wider">
             SAVE 35% ALL DSLR CAMERAS
           </h4>
-          <NuxtLink to="/products-dslr">
+          <NuxtLink to="/product/dslr">
             <h5
               class="text-accent font-normal tracking-wider cursor-pointer mt-3"
             >
@@ -64,7 +64,7 @@ import PromoImg2 from "~/public/promo_img2.png";
           <h4 class="font-bold text-lg tracking-wider">
             SAVE 35% ALL FILM CAMERAS
           </h4>
-          <NuxtLink to="/film">
+          <NuxtLink to="/product/film">
             <h5
               class="text-accent font-normal tracking-wider cursor-pointer mt-3"
             >
