@@ -1,6 +1,4 @@
 <script setup>
-
-
 const props = defineProps({
   handleToggleMenu: {
     type: Function,
@@ -21,19 +19,19 @@ const props = defineProps({
         />
       </span>
       <h3 className="text-accent font-bold text-2xl">Products Categories</h3>
-      <NuxtLink @click="props.handleToggleMenu" to="/products-dslr">
+      <NuxtLink @click="props.handleToggleMenu" to="/product/dslr">
         Dslr Camera
       </NuxtLink>
-      <NuxtLink @click="props.handleToggleMenu" to="/products-mirrorless">
+      <NuxtLink @click="props.handleToggleMenu" to="/product/mirrorless">
         Mirrorless Camera
       </NuxtLink>
-      <NuxtLink @click="props.handleToggleMenu" to="/products-compact">
+      <NuxtLink @click="props.handleToggleMenu" to="/product/compact">
         Compact Camera
       </NuxtLink>
-      <NuxtLink @click="props.handleToggleMenu" to="/products-film">
+      <NuxtLink @click="props.handleToggleMenu" to="/product/film">
         Film Camera
       </NuxtLink>
-      <NuxtLink @click="props.handleToggleMenu" to="/products-professional">
+      <NuxtLink @click="props.handleToggleMenu" to="/product/professional">
         Professional Camera
       </NuxtLink>
 

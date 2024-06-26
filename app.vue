@@ -11,10 +11,8 @@ productsStore.getProducts();
 
 <template>
   <NuxtLayout>
-    <template #default>
-      <Spinner v-if="productsStore.loading" />
-      <CompleteCartOverview v-if="cartStore.openCart" />
-      <NuxtPage />
-    </template>
+    <Spinner v-if="productsStore.loading" />
+    <CompleteCartOverview v-if="cartStore.openCart" />
+    <NuxtPage />
   </NuxtLayout>
 </template>

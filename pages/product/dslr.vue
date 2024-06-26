@@ -1,5 +1,5 @@
 <script setup>
-import { useProductsStore } from "~/stores/products";
+import { useProductsStore } from "@/stores/product";
 
 const productsStore = useProductsStore();
 

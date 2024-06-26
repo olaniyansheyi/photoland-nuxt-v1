@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { supabase } from "~/plugins/supabase";
+import { useNuxtApp } from "#app";
 import { useToast } from "vue-toastification";
 import { useRouter } from "vue-router";
 
@@ -18,7 +18,8 @@ export const useOrderStore = defineStore("order", {
     async createOrder(newOrder) {
       try {
         this.isLoading = true;
-        const { data, error } = await supabase
+        const { $supabase } = useNuxtApp();
+        const { data, error } = await $supabase
           .from("order")
           .insert([newOrder])
           .select("id")

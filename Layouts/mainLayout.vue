@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <HeaderView />
+  <Header />
   <slot />
-  <FooterView />
+  <Footer />
 </template>

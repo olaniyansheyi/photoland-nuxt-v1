@@ -1,5 +1,5 @@
 <script setup>
-import logo from "~/public/img/logo.png";
+import logo from "~/public/logo.png";
 import { useCartStore } from "~/stores/cart";
 import { useRouter } from "#app";
 import { useOrderStore } from "~/stores/order";
