@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        mainSlider: "url('~/public/img/mainSlider_bg.png')",
+        mainSlider: "url('~/public/mainSlider_bg.png')",
       },
       colors: {
         body: "#1D1F23",

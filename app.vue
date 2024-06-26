@@ -10,10 +10,11 @@ productsStore.getProducts();
 </script>
 
 <template>
-  <mainLayout>
-    <NuxtPage />
-  </mainLayout>
-
-  <Spinner v-if="productsStore.loading" />
-  <CompleteCartOverview v-if="cartStore.openCart" />
+  <NuxtLayout>
+    <template #default>
+      <Spinner v-if="productsStore.loading" />
+      <CompleteCartOverview v-if="cartStore.openCart" />
+      <NuxtPage />
+    </template>
+  </NuxtLayout>
 </template>
