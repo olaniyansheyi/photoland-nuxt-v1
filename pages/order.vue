@@ -86,7 +86,7 @@ watchEffect(async () => {
       class="bg-gradient-to-t from-[#1F2126] to-[#33363D] drop-shadow-2xl space-y-2 px-6 py-5"
     >
       <p class="text-sm font-normal text-accent">
-        Total Price: ${{ totalProductsPrice }}.00
+        Total Price: ${{ orderStore.totalProductsPrice }}.00
       </p>
       <p class="text-sm font-normal text-accent">
         Your address: {{ orderStore.order.address }}

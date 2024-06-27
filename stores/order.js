@@ -39,12 +39,14 @@ export const useOrderStore = defineStore("order", {
     },
 
     async getOrder(currentOrderId) {
+      const { $supabase } = useNuxtApp();
+      const router = useRouter();
+      this.isLoading = true;
       try {
         if (currentOrderId === null) {
-          return router.push("/");
+          router.push("/");
+          return null;
         }
-
-        const { $supabase } = useNuxtApp();
 
         const { data, error } = await $supabase
           .from("order")
@@ -53,10 +55,9 @@ export const useOrderStore = defineStore("order", {
           .single();
 
         if (error || !data) {
-          throw new Error("order could not be fetched");
+          throw new Error("Order could not be fetched");
         }
         this.order = data;
-
         return data;
       } catch (error) {
         console.error(error);
@@ -64,6 +65,7 @@ export const useOrderStore = defineStore("order", {
         this.isLoading = false;
       }
     },
+
     handleSetCurrentOrderId(id) {
       this.currentOrderId = id;
     },
