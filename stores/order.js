@@ -44,7 +44,9 @@ export const useOrderStore = defineStore("order", {
           return router.push("/");
         }
 
-        const { data, error } = await supabase
+        const { $supabase } = useNuxtApp();
+
+        const { data, error } = await $supabase
           .from("order")
           .select("*")
           .eq("id", currentOrderId)

@@ -17,10 +17,11 @@ export const useProductsStore = defineStore("products", {
         const { data, error } = await $supabase.from("products").select("*");
 
         if (error) {
-          console.error(error);
+          console.error("supabase error", error);
           this.error = "Products could not be loaded";
         } else {
-          this.products = data;
+          this.products = data || [];
+          console.log(this.products);
         }
       } catch (error) {
         console.error("Unexpected error:", error);
