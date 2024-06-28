@@ -25,10 +25,8 @@ async function handleLogin() {
     console.error("Login failed:", error.message);
   }
 
-  console.log(authStore.user === null);
-
-  // authStore.email = "";
-  // authStore.password = "";
+  authStore.email = "";
+  authStore.password = "";
 }
 </script>
 

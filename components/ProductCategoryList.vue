@@ -1,7 +1,26 @@
 <script setup>
 import { useAuthStore } from "~/stores/auth.js";
+import { useToast } from "vue-toastification";
+
+const toast = useToast();
 
 const authStore = useAuthStore();
+
+async function handleLogout() {
+  try {
+    const { error } = await authStore.logout();
+
+    if (error) {
+      toast.error(`${error}`);
+    } else {
+      props.handleToggleMenu();
+      toast.success("you are successfully logged out!");
+      console.log(authStore.user === null);
+    }
+  } catch (error) {
+    console.error("Login failed:", error.message);
+  }
+}
 </script>
 
 <template>
@@ -20,10 +39,11 @@ const authStore = useAuthStore();
       <NuxtLink to="/products/film">Film Camera</NuxtLink>
       <NuxtLink to="/products/professional">Professional Camera</NuxtLink>
       <button
+        @click="handleLogout()"
         type="submit"
         class="text-primary bg-accent hover:bg-accent-hover px-5 py-3 font-semibold rounded-lg mt-3 flex"
       >
-        <span
+        <span class="mr-2"
           >Logout
           <font-awesome-icon :icon="['fas', 'sign-out-alt']" />
         </span>
