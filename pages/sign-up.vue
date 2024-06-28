@@ -1,7 +1,7 @@
 <script setup>
 import { useAuthStore } from "~/stores/auth.js";
-import pkg from "vue-toastification";
-const { useToast } = pkg;
+import { useToast } from "vue-toastification";
+const toast = useToast();
 
 const authStore = useAuthStore();
 
@@ -13,10 +13,10 @@ async function handleSignUp() {
       password: authStore.password,
     });
     if (response.error) {
-      useToast().error(`${response.error}`);
+      toast.error(`${response.error}`);
     } else {
       navigateTo("/login");
-      useToast().success(
+      toast.success(
         "refistration successfull, PLease make sure you verify your email before you log in!"
       );
     }

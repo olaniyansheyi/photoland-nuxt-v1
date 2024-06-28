@@ -1,13 +1,15 @@
 <script setup>
 import { useAuthStore } from "~/stores/auth.js";
-import pkg from "vue-toastification";
-const { useToast } = pkg;
+import { useToast } from "vue-toastification";
+const toast = useToast();
 
 const authStore = useAuthStore();
 
 async function handleLogin() {
-  if (authStore.email === "" || authStore.password === "")
-    return toast.error("All feild is required!");
+  if (authStore.email === "" || authStore.password === "") {
+    toast.error("All feild is required!");
+    return;
+  }
   try {
     const { error } = await authStore.login({
       email: authStore.email,
@@ -15,10 +17,10 @@ async function handleLogin() {
     });
 
     if (error) {
-      useToast.error(`${error}`);
+      toast.error(`${error}`);
     } else {
       navigateTo("/");
-      useToast.success("you are successfully logged in!");
+      toast.success("you are successfully logged in!");
     }
   } catch (error) {
     console.error("Login failed:", error.message);
