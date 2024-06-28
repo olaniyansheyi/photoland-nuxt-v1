@@ -3,6 +3,9 @@ import { useOrderStore } from "~/stores/order";
 import { useCartStore } from "~/stores/cart";
 import { useToast } from "vue-toastification";
 import { useRouter } from "#app";
+import { useAuthStore } from "~/stores/auth.js";
+
+const authStore = useAuthStore();
 
 const router = useRouter();
 const toast = useToast();
@@ -10,10 +13,11 @@ const toast = useToast();
 const orderStore = useOrderStore();
 const cartStore = useCartStore();
 
-const name = ref(null);
-const address = ref(null);
-const phoneNo = ref(null);
 const dateTime = ref("");
+
+definePageMeta({
+  middleware: "auth",
+});
 
 onMounted(() => {
   const calculateDateTime = () => {
@@ -47,18 +51,18 @@ const handleSubmitOrder = async () => {
     hoursLeft: 24,
     deliveryDay: dateTime.value,
     products: [...cartStore.cart],
-    name: name.value,
-    address: address.value,
-    phoneNumber: phoneNo.value,
+    name: authStore.fullName.value,
+    address: authStore.address.value,
+    phoneNumber: authStore.phoneNumber.value,
   };
 
   try {
     const orderId = await orderStore.createOrder(newOrder);
 
     if (orderId) {
-      name.value = null;
-      address.value = null;
-      phoneNo.value = null;
+      authStore.fullName.value = "";
+      authStore.address.value = "";
+      authStore.phoneNumber.value = "";
       cartStore.cart = [];
       orderStore.handleSetCurrentOrderId(orderId.id);
       router.push(`/order`);

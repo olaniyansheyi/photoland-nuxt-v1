@@ -15,6 +15,6 @@ export default {
   plugins: [
     { src: "~/plugins/supabase.js", mode: "client" },
     "~/plugins/iconify.js",
-    "~/plugins/fontawesome.js",  
+    "~/plugins/fontawesome.js",
   ],
 };

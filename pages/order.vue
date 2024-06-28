@@ -12,6 +12,10 @@ watchEffect(async () => {
   Number(orderStore.currentOrderId);
   await orderStore.getOrder(orderStore.currentOrderId);
 });
+
+definePageMeta({
+  middleware: "auth",
+});
 </script>
 
 <template>
