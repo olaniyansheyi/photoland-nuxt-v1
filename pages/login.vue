@@ -1,8 +1,7 @@
 <script setup>
 import { useAuthStore } from "~/stores/auth.js";
-import { useToast } from "vue-toastification";
-
-const toast = useToast();
+import pkg from "vue-toastification";
+const { useToast } = pkg;
 
 const authStore = useAuthStore();
 
@@ -16,10 +15,10 @@ async function handleLogin() {
     });
 
     if (error) {
-      toast.error(`${error}`);
+      useToast.error(`${error}`);
     } else {
       navigateTo("/");
-      toast.success("you are successfully logged in!");
+      useToast.success("you are successfully logged in!");
     }
   } catch (error) {
     console.error("Login failed:", error.message);
