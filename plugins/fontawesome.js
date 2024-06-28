@@ -4,6 +4,8 @@ import {
   faTimes,
   faSearch,
   faCartPlus,
+  faSpinner,
+  faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faTwitter,
@@ -19,7 +21,9 @@ library.add(
   faTwitter,
   faLinkedin,
   faWhatsapp,
-  faTimes
+  faTimes,
+  faSpinner,
+  faSignOutAlt
 );
 
 export default defineNuxtPlugin((nuxtApp) => {

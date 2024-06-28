@@ -1,4 +1,7 @@
 <script setup>
+import { useAuthStore } from "~/stores/auth.js";
+
+const authStore = useAuthStore();
 const props = defineProps({
   handleToggleMenu: {
     type: Function,
@@ -34,6 +37,16 @@ const props = defineProps({
       <NuxtLink @click="props.handleToggleMenu" to="/products/professional">
         Professional Camera
       </NuxtLink>
+      <button
+        type="submit"
+        class="text-primary bg-accent hover:bg-accent-hover px-5 py-3 font-semibold rounded-lg mt-3 flex"
+      >
+        <span
+          >Logout
+          <font-awesome-icon :icon="['fas', 'sign-out-alt']" />
+        </span>
+        <SpinnerMini v-if="authStore.loading" />
+      </button>
 
       <NuxtLink
         @click="props.handleToggleMenu"

@@ -1,28 +1,39 @@
 <script setup>
 import { useAuthStore } from "~/stores/auth.js";
+import { useToast } from "vue-toastification";
+
+const toast = useToast();
 
 const authStore = useAuthStore();
 
 async function handleLogin() {
+  if (authStore.email === "" || authStore.password === "")
+    return toast.error("All feild is required!");
   try {
-    await authStore.login({
+    const { error } = await authStore.login({
       email: authStore.email,
       password: authStore.password,
     });
+
+    if (error) {
+      toast.error(`${error}`);
+    } else {
+      navigateTo("/");
+      toast.success("you are successfully logged in!");
+    }
   } catch (error) {
     console.error("Login failed:", error.message);
   }
 
-  console.log(authStore.user);
+  console.log(authStore.user === null);
 
   // authStore.email = "";
   // authStore.password = "";
-  navigateTo('/home')
 }
 </script>
 
 <template>
-  <div class="w-full flex justify-center items-center h-[screen] px-5">
+  <div class="w-full flex justify-center items-center h-[screen] px-5 py-20">
     <div
       class="bg-gradient-to-t from-[#1F2126] to-[#33363D] drop-shadow-2xl rounded-lg py-12 px-10 text-white"
     >
@@ -47,7 +58,6 @@ async function handleLogin() {
             v-model="authStore.email"
             class="w-full text-primary py-2 mt-2 outline-none px-5 rounded-lg"
             type="mail"
-            required
           />
         </span>
         <span class="flex flex-col">
@@ -63,9 +73,10 @@ async function handleLogin() {
         </span>
         <button
           type="submit"
-          class="text-primary bg-accent hover:bg-accent-hover px-5 py-2 font-semibold rounded-lg mt-3"
+          class="text-primary bg-accent hover:bg-accent-hover px-5 py-4 font-semibold rounded-lg mt-3 flex gap-x-4"
         >
-          Login
+          <span>Login</span>
+          <SpinnerMini v-if="authStore.loading" />
         </button>
       </form>
       <h6 class="mt-3 font-normal text-sm text-white tracking-wide">

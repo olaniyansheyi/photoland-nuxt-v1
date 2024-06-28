@@ -1,25 +1,34 @@
 <script setup>
 import { useAuthStore } from "~/stores/auth.js";
+import { useToast } from "vue-toastification";
+
+const toast = useToast();
 
 const authStore = useAuthStore();
 
 async function handleSignUp() {
   try {
-    await authStore.signup({
+    const response = await authStore.signup({
       fullName: authStore.fullName,
       email: authStore.email,
       password: authStore.password,
     });
+    if (response.error) {
+      toast.error(`${response.error}`);
+    } else {
+      navigateTo("/login");
+      toast.success(
+        "refistration successfull, PLease make sure you verify your email before you log in!"
+      );
+    }
   } catch (error) {
-    console.error("Login failed:", error.message);
+    console.error("Sign-up failed:", error.message);
   }
 
-  console.log(authStore.user);
-
-  // authStore.email = "";
-  // authStore.password = "";
-
-  navigateTo("/login");
+  authStore.fullName = "";
+  authStore.email = "";
+  authStore.address = "";
+  authStore.phoneNumber = "";
 }
 </script>
 
@@ -98,9 +107,10 @@ async function handleSignUp() {
         </span>
         <button
           type="submit"
-          class="text-primary bg-accent hover:bg-accent-hover px-5 py-2 font-semibold rounded-lg mt-3"
+          class="text-primary bg-accent hover:bg-accent-hover px-5 py-4 font-semibold rounded-lg mt-3 flex"
         >
-          Sign Up
+          <span>Sign up</span>
+          <SpinnerMini v-if="authStore.loading" />
         </button>
       </form>
       <h6 class="mt-3 font-normal text-sm text-white tracking-wide">

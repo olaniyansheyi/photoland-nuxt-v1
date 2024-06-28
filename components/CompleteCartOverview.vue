@@ -98,7 +98,7 @@ const totalProductsPrice = cartStore.cart.reduce(
             ${{ cartStore.totalProductsPrice }}
           </h4>
 
-          <NuxtLink to="/createOrder">
+          <NuxtLink to="/checkout">
             <button
               @click="
                 () => {

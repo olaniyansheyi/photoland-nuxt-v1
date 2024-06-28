@@ -5,26 +5,27 @@ export const useAuthStore = defineStore("auth", {
     user: null,
     loading: false,
     error: null,
-    email: ref("olaniyansheyi1704@gmail.com"),
-    password: ref("Sheyman(1704)"),
-    fullName: ref(""),
-    address: ref(""),
-    phoneNumber: ref(""),
+    email: ref(""),
+    password: "Sheyman(1704)",
+    fullName: "",
+    address: "",
+    phoneNumber: "",
   }),
   actions: {
     async signup({ fullName, email, password }) {
       const { $supabase } = useNuxtApp();
       this.loading = true;
       this.error = null;
+      let response;
       try {
-        const { data, error } = await $supabase.auth.signUp({
+        response = await $supabase.auth.signUp({
           email,
           password,
           options: {
             data: { fullName },
           },
         });
-        console.log("success");
+        const { data, error } = response;
         if (error) throw error;
         this.user = data.user;
       } catch (error) {
@@ -32,16 +33,19 @@ export const useAuthStore = defineStore("auth", {
       } finally {
         this.loading = false;
       }
+      return response;
     },
     async login({ email, password }) {
       const { $supabase } = useNuxtApp();
       this.loading = true;
       this.error = null;
+      let response;
       try {
-        const { data, error } = await $supabase.auth.signInWithPassword({
+        response = await $supabase.auth.signInWithPassword({
           email,
           password,
         });
+        const { data, error } = response;
         if (error) throw error;
         this.user = data.user;
       } catch (error) {
@@ -49,13 +53,16 @@ export const useAuthStore = defineStore("auth", {
       } finally {
         this.loading = false;
       }
+      return response;
     },
     async logout() {
       const { $supabase } = useNuxtApp();
       this.loading = true;
       this.error = null;
+      let response;
       try {
-        const { error } = await $supabase.auth.signOut();
+        response = await $supabase.auth.signOut();
+        const { error } = response;
         if (error) throw error;
         this.user = null;
       } catch (error) {
@@ -63,13 +70,16 @@ export const useAuthStore = defineStore("auth", {
       } finally {
         this.loading = false;
       }
+      return response;
     },
     async getCurrentUser() {
       const { $supabase } = useNuxtApp();
       this.loading = true;
       this.error = null;
+      let response;
       try {
-        const { data: session } = await $supabase.auth.getSession();
+        response = await $supabase.auth.getSession();
+        const { data: session } = response;
         if (session.session) {
           const { data, error } = await $supabase.auth.getUser();
           if (error) throw error;
@@ -82,6 +92,7 @@ export const useAuthStore = defineStore("auth", {
       } finally {
         this.loading = false;
       }
+      return response;
     },
   },
 });

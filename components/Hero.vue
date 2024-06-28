@@ -19,16 +19,13 @@ import PromoImg2 from "~/public/promo_img2.png";
         <h1 class="font-black tracking-wider text-3xl">
           SAVE 20% ON YOUR FIRST ORDER
         </h1>
-        <button
-          @click="
-            {
-              handleToggleMenu;
-            }
-          "
-          class="mt-10 text-primary bg-accent rounded-lg py-3 px-8 font-semibold hover:bg-accent-hover tracking-wider"
-        >
-          SIGNUP NOW!
-        </button>
+        <NuxtLink to="/sign-up">
+          <button
+            class="mt-10 text-primary bg-accent rounded-lg py-3 px-8 font-semibold hover:bg-accent-hover tracking-wider"
+          >
+            SIGNUP NOW!
+          </button>
+        </NuxtLink>
       </span>
       <div class="lg:ms-[-5rem]">
         <img :src="camera" class="" alt="" />
