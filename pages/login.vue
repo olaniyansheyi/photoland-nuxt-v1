@@ -64,7 +64,7 @@ async function handleLogin() {
       </form>
       <h6 class="mt-3 font-normal text-sm text-white tracking-wide">
         Dont have an account yet?
-        <NuxtLink class="text-accent" to="/signUp">Sign up</NuxtLink>
+        <NuxtLink class="text-accent" to="/">Sign up</NuxtLink>
       </h6>
     </div>
   </div>
