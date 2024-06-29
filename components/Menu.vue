@@ -1,7 +1,7 @@
 <script setup>
 import { useAuthStore } from "~/stores/auth.js";
 import { useToast } from "vue-toastification";
-// const toast = useToast();
+const toast = useToast();
 
 const authStore = useAuthStore();
 const props = defineProps({
@@ -11,21 +11,21 @@ const props = defineProps({
   },
 });
 
-// async function handleLogout() {
-//   try {
-//     const { error } = await authStore.logout();
+async function handleLogout() {
+  try {
+    const { error } = await authStore.logout();
 
-//     if (error) {
-//       toast.error(`${error}`);
-//     } else {
-//       props.handleToggleMenu();
-//       toast.success("you are successfully logged out!");
-//       console.log(authStore.user === null);
-//     }
-//   } catch (error) {
-//     console.error("Login failed:", error.message);
-//   }
-// }
+    if (error) {
+      toast.error(`${error}`);
+    } else {
+      props.handleToggleMenu();
+      toast.success("you are successfully logged out!");
+      console.log(authStore.user === null);
+    }
+  } catch (error) {
+    console.error("Login failed:", error.message);
+  }
+}
 </script>
 
 <template>
@@ -55,7 +55,7 @@ const props = defineProps({
       <NuxtLink @click="props.handleToggleMenu" to="/products/professional">
         Professional Camera
       </NuxtLink>
-      <!-- <button
+      <button
         @click="handleLogout()"
         type="submit"
         class="text-primary bg-accent hover:bg-accent-hover px-5 py-3 font-semibold rounded-lg mt-3 flex"
@@ -65,7 +65,7 @@ const props = defineProps({
           <font-awesome-icon :icon="['fas', 'sign-out-alt']" />
         </span>
         <SpinnerMini v-if="authStore.loading" />
-      </button> -->
+      </button>
 
       <NuxtLink
         @click="props.handleToggleMenu"
