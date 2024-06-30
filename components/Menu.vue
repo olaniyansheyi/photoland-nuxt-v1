@@ -1,6 +1,7 @@
 <script setup>
 import { useAuthStore } from "~/stores/auth.js";
 import { useToast } from "vue-toastification";
+
 const toast = useToast();
 
 const authStore = useAuthStore();
@@ -20,7 +21,6 @@ async function handleLogout() {
     } else {
       props.handleToggleMenu();
       toast.success("you are successfully logged out!");
-      console.log(authStore.user === null);
     }
   } catch (error) {
     console.error("Login failed:", error.message);

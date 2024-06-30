@@ -11,8 +11,6 @@ definePageMeta({
   middleware: "auth",
 });
 
-const toast = useToast();
-
 const cartStore = useCartStore();
 const cartItems = cartStore.cart;
 const total = cartStore.totalProductsPrice;

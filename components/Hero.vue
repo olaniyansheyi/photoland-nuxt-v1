@@ -19,7 +19,7 @@ import PromoImg2 from "~/public/promo_img2.png";
         <h1 class="font-black tracking-wider text-3xl">
           SAVE 20% ON YOUR FIRST ORDER
         </h1>
-        <NuxtLink to="/order">
+        <NuxtLink to="/sign-up">
           <button
             class="mt-10 text-primary bg-accent rounded-lg py-3 px-8 font-semibold hover:bg-accent-hover tracking-wider"
           >
