@@ -27,7 +27,7 @@ const handleSubmitSearch = () => {
   const productId = extractNumbers(searchQuery.value);
   Number(productId);
   orderStore.handleSetSearchId(productId);
-  console.log(productId);
+  searchQuery.value = "";
   router.push("/order");
 };
 </script>

@@ -5,6 +5,13 @@ import { loadStripe } from "@stripe/stripe-js";
 import { useCartStore } from "~/stores/cart";
 import { useAuthStore } from "~/stores/auth.js";
 import { useOrderStore } from "~/stores/order";
+import { useToast } from "vue-toastification";
+
+definePageMeta({
+  middleware: "auth",
+});
+
+const toast = useToast();
 
 const cartStore = useCartStore();
 const cartItems = cartStore.cart;
@@ -38,10 +45,6 @@ onMounted(() => {
   };
 
   calculateDateTime();
-});
-
-definePageMeta({
-  middleware: "auth",
 });
 
 onMounted(async () => {
@@ -85,25 +88,27 @@ const pay = async () => {
       name: authStore.fullName.value,
       address: authStore.address.value,
       phoneNumber: authStore.phoneNumber.value,
-      paymentIntentId: result.paymentIntent.id,
+      // paymentIntentId: result.paymentIntent.id,
     };
 
     try {
       const orderId = await orderStore.createOrder(newOrder);
 
       if (orderId) {
+        await orderStore.handleSetCurrentOrderId(orderId.id);
         authStore.fullName.value = "";
         authStore.address.value = "";
         authStore.phoneNumber.value = "";
         cartStore.cart = [];
-        orderStore.handleSetCurrentOrderId(orderId.id);
-        router.push(`/order`);
+        cartStore.handleClearCart();
       }
     } catch (error) {
-      toast.error("Failed to place the order");
+      console.error("Failed to place the order");
+      isProcessing.value = false;
     }
 
-    cartStore.handleClearCart();
+    console.log(orderStore.currentOrderId);
+
     router.push("/order");
   }
 };
