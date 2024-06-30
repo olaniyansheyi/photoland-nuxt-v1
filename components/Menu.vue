@@ -56,6 +56,7 @@ async function handleLogout() {
         Professional Camera
       </NuxtLink>
       <button
+        v-if="authStore.user"
         @click="handleLogout()"
         type="submit"
         class="text-primary bg-accent hover:bg-accent-hover px-5 py-3 font-semibold rounded-lg mt-3 flex"
@@ -66,6 +67,14 @@ async function handleLogout() {
         </span>
         <SpinnerMini v-if="authStore.loading" />
       </button>
+      <NuxtLink v-else @click="props.handleToggleMenu" to="/login">
+        <button
+          type="submit"
+          class="text-primary bg-accent hover:bg-accent-hover px-5 py-3 font-semibold rounded-lg mt-3 flex"
+        >
+          Login/sign-up
+        </button>
+      </NuxtLink>
 
       <NuxtLink
         @click="props.handleToggleMenu"

@@ -15,9 +15,9 @@ const cartStore = useCartStore();
 
 const dateTime = ref("");
 
-definePageMeta({
-  middleware: "auth",
-});
+// definePageMeta({
+//   middleware: "auth",
+// });
 
 onMounted(() => {
   const calculateDateTime = () => {
