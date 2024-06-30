@@ -3,10 +3,10 @@ import { useCartStore } from "~/stores/cart";
 
 const cartStore = useCartStore();
 
-const totalProductsPrice = cartStore.cart.reduce(
-  (acc, item) => acc + item.unitPrice * item.quantity,
-  0
-);
+// const totalProductsPrice = cartStore.cart.reduce(
+//   (acc, item) => acc + item.unitPrice * item.quantity,
+//   0
+// );
 </script>
 <template>
   <div
