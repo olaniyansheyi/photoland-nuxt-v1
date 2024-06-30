@@ -3,11 +3,18 @@ import { useProductsStore } from "@/stores/product";
 import { useCartStore } from "~/stores/cart";
 
 import { useRouter } from "#app";
+import { onMounted } from "vue";
 
 const router = useRouter();
 
 const productsStore = useProductsStore();
 const cartStore = useCartStore();
+
+onMounted(() => {
+  if (!productsStore.currentSingleProduct) {
+    router.push("/");
+  }
+});
 </script>
 
 <template>

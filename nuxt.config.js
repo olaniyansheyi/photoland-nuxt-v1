@@ -23,5 +23,6 @@ export default {
     { src: "~/plugins/supabase.js", mode: "client" },
     "~/plugins/iconify.js",
     "~/plugins/fontawesome.js",
+    "~/plugins/motion.js",
   ],
 };
