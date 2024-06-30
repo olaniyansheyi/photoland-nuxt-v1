@@ -6,9 +6,9 @@ import { useCartStore } from "~/stores/cart";
 import { useAuthStore } from "~/stores/auth.js";
 import { useOrderStore } from "~/stores/order";
 
-// definePageMeta({
-//   middleware: "auth",
-// });
+definePageMeta({
+  middleware: "auth",
+});
 
 const cartStore = useCartStore();
 const cartItems = cartStore.cart;

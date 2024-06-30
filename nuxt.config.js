@@ -24,5 +24,6 @@ export default {
     "~/plugins/iconify.js",
     "~/plugins/fontawesome.js",
     "~/plugins/motion.js",
+    "~/plugins/vue-toastification.js",
   ],
 };
